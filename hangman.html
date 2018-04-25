@@ -18,14 +18,14 @@
       "book"
     ];
     //Вибір рандомного слова
-    var word = words[Math.floor(Math.random()*words.lenght)];
+    var word = words[Math.floor(Math.random()*words.length)];
 
     //Масив відповідей
     var answerArray = [];
-    for (var i=0; i<word.lenght; i++){
+    for (var i=0; i<word.length; i++){
       answerArray[i]="_";
     }
-    var remainingLetters = word.lenght;
+    var remainingLetters = word.length;
     //Ігровий цикл
     while (remainingLetters > 0) {
       alert(answerArray.join(" "));
@@ -35,11 +35,11 @@
     if (guess === null){
       break;
     }
-    else if (guess.lenght !==1){
+    else if (guess.length !==1){
       alert ("Please enter a single letter.");
     }
     else {
-      for (var j = 0; j < word.lenght; j++){
+      for (var j = 0; j < word.length; j++){
         if (word[j] === guess){
           answerArray[j] = guess;
           remainingLetters--;
