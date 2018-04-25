@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>LearnJS</title>
+  <title>Hangman</title>
 </head>
 <body>
   <script type="text/javascript">
-    //
+    //Масив слів
     var words = [
       "javascript",
       "monkey",
@@ -17,10 +17,37 @@
       "amazing",
       "book"
     ];
-    //
+    //Вибір рандомного слова
     var word = words[Math.floor(Math.random()*words.lenght)];
 
+    //Масив відповідей
+    var answerArray = [];
+    for (var i=0; i<word.lenght; i++){
+      answerArray[i]="_";
+    }
+    var remainingLetters = word.lenght;
+    //Ігровий цикл
+    while (remainingLetters > 0) {
+      alert(answerArray.join(" "));
+    }
     //
+    var guess = prompt("Guess a letter, or click Cancel to stop playing.");
+    if (guess === null){
+      break;
+    }
+    else if (guess.lenght !==1){
+      alert ("Please enter a single letter.");
+    }
+    else {
+      for (var j = 0; j < word.lenght; j++){
+        if (word[j] === guess){
+          answerArray[j] = guess;
+          remainingLetters--;
+        }
+      }
+    }
+alert(answerArray.join(" "));
+alert("Good job! The answer was" + word);
   </script>
 </body>
 </html>
